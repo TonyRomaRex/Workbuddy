@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港銀行港元定期存款利率對比 2026-04-11</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #003D7F 0%, #C4161C 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .section-title {
+            color: #003D7F;
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #C4161C;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .tenor-card {
+            border: 1px solid #e0e6ed;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .tenor-header {
+            background: #003D7F;
+            color: white;
+            padding: 12px 15px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .rate-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .rate-table th {
+            background: #E8EEF4;
+            color: #003D7F;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .rate-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        .rate-table tr:last-child td {
+            border-bottom: none;
+        }
+        .rate-table tr:hover {
+            background: #f8fafc;
+        }
+        .bank-name {
+            font-weight: 500;
+        }
+        .ncb-highlight {
+            background: #FFF3E0 !important;
+        }
+        .rate {
+            font-weight: 600;
+            text-align: right;
+        }
+        .rate-ultra { color: #C4161C; font-size: 16px; }
+        .rate-high { color: #d32f2f; }
+        .rate-medium { color: #e65100; }
+        .rate-normal { color: #1b8a2f; }
+        .rate-low { color: #aaa; }
+        .condition {
+            font-size: 12px;
+            color: #666;
+        }
+        .special-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .special-table th {
+            background: #C4161C;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .special-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .special-table tr:hover {
+            background: #fff5f5;
+        }
+        .notes {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        .notes h4 {
+            color: #f57c00;
+            margin-bottom: 8px;
+        }
+        .notes ul {
+            margin-left: 20px;
+            color: #666;
+        }
+        .notes li {
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 13px;
+        }
+        .footer a {
+            background: #C4161C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .footer a:hover {
+            background: #a01015;
+        }
+        @media (max-width: 768px) {
+            .rates-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏦 香港銀行港元定期存款利率對比</h1>
+            <div class="subtitle">數據更新：2026年4月11日 | 資料來源：香港經濟日報 HKET</div>
+        </div>
+
+        <!-- 🆕 新資金 Section -->
+        <div class="section">
+            <h2 class="section-title">🆕 新資金存款利率（所有客戶）</h2>
+            <div class="rates-grid">
+                <!-- 1個月 -->
+                <div class="tenor-card">
+                    <div class="tenor-header">1個月</div>
+                    <table class="rate-table">
+                        <tr><th>銀行</th><th>利率</th><th>起存</th></tr>
+                        <tr><td class="bank-name">富邦銀行</td><td class="rate rate-high">3.38%</td><td>1萬</td></tr>
+                        <tr><td class="bank-name">南洋商業銀行</td><td class="rate rate-medium">2.88%</td><td>1,000</td></tr>
+                        <tr><td class="bank-name">Mox Bank</td><td class="rate rate-low">0.25%</td><td>1元</td></tr>
+                        <tr><td class="bank-name">中銀香港</td><td class="rate rate-low">2.00%</td><td>1萬</td></tr>
+                    </table>
+                </div>
+                <!-- 3個月 -->
+                <div class="tenor-card">
+                    <div class="tenor-header">3個月</div>
+                    <table class="rate-table">
+                        <tr><th>銀行</th><th>利率</th><th>起存</th></tr>
+                        <tr><td class="bank-name">富邦銀行</td><td class="rate rate-normal">2.35%</td><td>1萬</td></tr>
+                        <tr><td class="bank-name">南洋商業銀行</td><td class="rate rate-normal">2.30%</td><td>1,000</td></tr>
+                        <tr><td class="bank-name">Mox Bank</td><td class="rate rate-normal">2.10%</td><td>1元</td></tr>
+                        <tr><td class="bank-name">滙豐銀行</td><td class="rate rate-normal">2.20%</td><td>1萬</td></tr>
+                        <tr><td class="bank-name">中銀香港</td><td class="rate rate-normal">2.10%</td><td>1萬</td></tr>
+                    </table>
+                </div>
+                <!-- 6個月 -->
+                <div class="tenor-card">
+                    <div class="tenor-header">6個月</div>
+                    <table class="rate-table">
+                        <tr><th>銀行</th><th>利率</th><th>起存</th></tr>
+                        <tr><td class="bank-name">南洋商業銀行</td><td class="rate rate-normal">2.40%</td><td>1,000</td></tr>
+                        <tr><td class="bank-name">富邦銀行</td><td class="rate rate-normal">2.35%</td><td>1萬</td></tr>
+                        <tr><td class="bank-name">Mox Bank</td><td class="rate rate-normal">2.30%</td><td>1元</td></tr>
+                        <tr><td class="bank-name">滙豐銀行</td><td class="rate rate-normal">2.00%</td><td>1萬</td></tr>
+                        <tr><td class="bank-name">中銀香港</td><td class="rate rate-low">1.90%</td><td>1萬</td></tr>
+                    </table>
+                </div>
+                <!-- 12個月 -->
+                <div class="tenor-card">
+                    <div class="tenor-header">12個月（1年）</div>
+                    <table class="rate-table">
+                        <tr><th>銀行</th><th>利率</th><th>起存</th></tr>
+                        <tr><td class="bank-name">富邦銀行</td><td class="rate rate-normal">2.50%</td><td>1萬</td></tr>
+                        <tr><td class="bank-name">南洋商業銀行</td><td class="rate rate-normal">2.30%</td><td>1,000</td></tr>
+                        <tr><td class="bank-name">Mox Bank</td><td class="rate rate-normal">2.50%</td><td>1元</td></tr>
+                        <tr><td class="bank-name">建行亞洲</td><td class="rate rate-normal">2.20%</td><td>100萬</td></tr>
+                    </table>
+                </div>
+                <!-- 24個月 -->
+                <div class="tenor-card">
+                    <div class="tenor-header">24個月（2年）</div>
+                    <table class="rate-table">
+                        <tr><th>銀行</th><th>利率</th><th>起存</th></tr>
+                        <tr><td class="bank-name ncb-highlight">南洋商業銀行 🟡</td><td class="rate rate-normal">2.50%</td><td>1,000</td></tr>
+                        <tr><td class="bank-name">Mox Bank</td><td class="rate rate-low">無此期限</td><td>-</td></tr>
+                    </table>
+                </div>
+                <!-- 36個月 -->
+                <div class="tenor-card">
+                    <div class="tenor-header">36個月（3年）</div>
+                    <table class="rate-table">
+                        <tr><th>銀行</th><th>利率</th><th>起存</th></tr>
+                        <tr><td class="bank-name ncb-highlight">南洋商業銀行 🟡</td><td class="rate rate-normal">2.50%</td><td>1,000</td></tr>
+                        <tr><td class="bank-name">Mox Bank</td><td class="rate rate-normal">2.30%</td><td>1元</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🎁 特殊條件 Section -->
+        <div class="section">
+            <h2 class="section-title">🎁 特殊條件優惠</h2>
+            <table class="special-table">
+                <tr>
+                    <th>銀行</th>
+                    <th>期限</th>
+                    <th>利率</th>
+                    <th>條件</th>
+                    <th>起存</th>
+                </tr>
+                <tr>
+                    <td class="bank-name">滙豐銀行</td>
+                    <td>1個月</td>
+                    <td class="rate rate-ultra">10%</td>
+                    <td class="condition">透過「交易薈」完成交易</td>
+                    <td>1萬</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">滙豐銀行</td>
+                    <td>7天</td>
+                    <td class="rate rate-ultra">7%</td>
+                    <td class="condition">卓越理財尊尚客戶、兌換資金</td>
+                    <td>1萬</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">南洋商業銀行</td>
+                    <td>1星期</td>
+                    <td class="rate rate-ultra">6.8%</td>
+                    <td class="condition">兌換資金</td>
+                    <td>1,000</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">富邦銀行</td>
+                    <td>1星期</td>
+                    <td class="rate rate-ultra">6.88%</td>
+                    <td class="condition">只限兌換貨幣</td>
+                    <td>10萬</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">建行亞洲</td>
+                    <td>3個月</td>
+                    <td class="rate rate-ultra">6.88%</td>
+                    <td class="condition">貴賓理財新客戶、首20%新資金（其餘2.2%）</td>
+                    <td>100萬</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">建行亞洲</td>
+                    <td>3個月</td>
+                    <td class="rate rate-ultra">5.88%</td>
+                    <td class="condition">手機開戶新客戶</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">中銀香港</td>
+                    <td>1星期</td>
+                    <td class="rate rate-high">5.0%</td>
+                    <td class="condition">綜合理財服務客戶、兌換資金</td>
+                    <td>5萬</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">南洋商業銀行</td>
+                    <td>1個月</td>
+                    <td class="rate rate-high">3.08%</td>
+                    <td class="condition">新客戶手機銀行遙距開戶專享</td>
+                    <td>1萬</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 📌 重要說明 -->
+        <div class="section">
+            <div class="notes">
+                <h4>📌 重要說明</h4>
+                <ul>
+                    <li><strong>數據來源：</strong>香港經濟日報（HKET）2026年4月10日發布，各銀行官網核實</li>
+                    <li><strong>核實規則：</strong>只取官方利率表數字，不取「最高X厘」標題；數據不超過30天</li>
+                    <li><strong>新資金定義：</strong>明確標注「新資金」才算；兌換資金歸入特殊條件</li>
+                    <li><strong>利率顏色：</strong>🔴 >5% 超高息 | 深紅 3-5% 高息 | 🟠 2.5-3% 中高 | 🟢 2-2.5% 適中 | ⚫ <2% 偏低</li>
+                    <li><strong>南商銀行 🟡：</strong>唯一提供2年及3年定存的銀行（2.5%）</li>
+                    <li><strong>Mox Bank：</strong>沒有24個月（2年）定存產品</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 📰 數據來源 -->
+        <div class="section footer">
+            <p>本頁面由 WorkBuddy 自動生成 | 數據截止：2026年4月11日</p>
+            <a href="https://wealth.hket.com/article/3947091/" target="_blank">📰 查看香港經濟日報原始文章</a>
+        </div>
+    </div>
+</body>
+</html>
