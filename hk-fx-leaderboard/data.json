@@ -1,0 +1,811 @@
+{
+  "mode": "official-bank-sources",
+  "bank_universe": [
+    "WeLab Bank",
+    "HSBC",
+    "BOC(HK)",
+    "Hang Seng Bank",
+    "Standard Chartered",
+    "Citibank",
+    "DBS Bank",
+    "南洋商業銀行",
+    "招商永隆銀行",
+    "交通銀行香港"
+  ],
+  "source_policy": "official realtime bank websites/APIs only; unavailable banks are shown as blockers, not filled from third-party comparison data",
+  "fetched_at": "2026-05-15T15:20:53+08:00",
+  "sources": [
+    {
+      "bank": "HSBC",
+      "ok": true,
+      "url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+      "records": 10
+    },
+    {
+      "bank": "Hang Seng Bank",
+      "ok": true,
+      "url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+      "records": 10,
+      "note": "2026-05-15T15:16:00+08:00"
+    },
+    {
+      "bank": "WeLab Bank",
+      "ok": true,
+      "url": "https://www.welab.bank/fx.json",
+      "note": "數據截至2026年5月15日"
+    },
+    {
+      "bank": "BOC(HK)",
+      "ok": true,
+      "url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+      "records": 10,
+      "note": "2026/05/15 15:17:56"
+    },
+    {
+      "bank": "DBS Bank",
+      "ok": true,
+      "url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+      "records": 10
+    },
+    {
+      "bank": "南洋商業銀行",
+      "ok": true,
+      "url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+      "records": 11,
+      "api": "https://www.ncb.com.hk/api/precious/findConversionRateAll"
+    },
+    {
+      "bank": "招商永隆銀行",
+      "ok": true,
+      "url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+      "records": 11,
+      "note": "2026/05/15 15:20:50"
+    },
+    {
+      "bank": "交通銀行香港",
+      "ok": true,
+      "url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+      "records": 9,
+      "api": "https://www.hk.bankcomm.com/HK/getForeignExchangeData.do",
+      "note": "2026/05/15 15:20:00"
+    },
+    {
+      "bank": "Standard Chartered",
+      "ok": false,
+      "url": "https://www.sc.com/hk/investment/foreign-exchange/foreign-exchange-rate/",
+      "error": "realtime official rate endpoint not located"
+    },
+    {
+      "bank": "Citibank",
+      "ok": false,
+      "url": "https://www.citibank.com.hk/english/banking/foreign-currency-exchange-rates.htm",
+      "error": "realtime official rate endpoint not located"
+    }
+  ],
+  "blockers": [
+    {
+      "bank": "Standard Chartered",
+      "url": "https://www.sc.com/hk/investment/foreign-exchange/foreign-exchange-rate/",
+      "reason": "官方外匯頁可訪問，但本輪未定位到可機器讀取的實時牌價 API；頁面多為市場觀點/產品入口，需後續補端點。"
+    },
+    {
+      "bank": "Citibank",
+      "url": "https://www.citibank.com.hk/english/banking/foreign-currency-exchange-rates.htm",
+      "reason": "本輪未定位到 Citibank HK 公開實時外幣牌價 API；先列入來源阻塞，避免借用第三方數據。"
+    }
+  ],
+  "currencies": [
+    {
+      "code": "USD",
+      "name": "美元",
+      "description": "(USD 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 7.8369,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 7.8447000000000005,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 7.845,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 7.846398,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 7.853,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 7.855444,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 7.8607,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:08 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 7.88,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 550
+    },
+    {
+      "code": "CNY",
+      "name": "人民幣",
+      "description": "(CNY 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 1.1526,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 1.155268022181146,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 1.156,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 1.1575879,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 1.1576,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 1.1578,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 1.158551,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 1.171,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 1596
+    },
+    {
+      "code": "AUD",
+      "name": "澳元",
+      "description": "(AUD 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "招商永隆銀行",
+          "rate": 5.631,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "WeLab Bank",
+          "rate": 5.6337,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 5.6377,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 5.6390196,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 5.65,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 5.6514,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 5.659197,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 5.72,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 1581
+    },
+    {
+      "code": "CAD",
+      "name": "加拿大元",
+      "description": "(CAD 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 5.7019,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 5.713,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 5.7175,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 5.718866,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 5.731,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 5.736383,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 5.7414,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 5.79,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 1545
+    },
+    {
+      "code": "CHF",
+      "name": "瑞士法郎",
+      "description": "(CHF 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 9.972,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 10.006,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 10.006,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 10.0065443,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 10.0364,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 10.038214,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 10.04,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 10.045,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        }
+      ],
+      "max_saving_hkd_per_100k": 732
+    },
+    {
+      "code": "EUR",
+      "name": "歐羅",
+      "description": "(EUR 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 9.1255,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 9.146,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 9.1512,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 9.1658708,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 9.17,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 9.178466,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 9.1863,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 9.21,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 926
+    },
+    {
+      "code": "GBP",
+      "name": "英鎊",
+      "description": "(GBP 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 10.4762,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 10.498,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 10.5096365,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 10.511199999999999,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 10.523,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 10.529124,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 10.545,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 10.61,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 1277
+    },
+    {
+      "code": "JPY",
+      "name": "日圓",
+      "description": "(JPY 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 0.04942,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 0.049552,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 0.0495824,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 0.04962,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 0.049788,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 0.04981,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 0.05026,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 49.78,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        }
+      ],
+      "max_saving_hkd_per_100k": 100628450
+    },
+    {
+      "code": "NZD",
+      "name": "紐西蘭元",
+      "description": "(NZD 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 4.6101,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 4.612,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "交通銀行香港",
+          "rate": 4.6154518,
+          "source": "交通銀行香港官方外幣兌港元 API",
+          "source_url": "https://www.hk.bankcomm.com/hk/shtml/hk/tw/2005155/2005175/2005176/list.shtml?channelId=2005155",
+          "rate_type": "sellPrice / Bank Sell",
+          "updated_at": "2026/05/15 15:20:00"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 4.616499999999999,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 4.631,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 4.633196,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 4.6337,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 4.7,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 1950
+    },
+    {
+      "code": "SGD",
+      "name": "新加坡元",
+      "description": "(SGD 1 <> HKD)",
+      "rates": [
+        {
+          "bank": "WeLab Bank",
+          "rate": 6.1312,
+          "source": "WeLab Bank 官方 fx.json",
+          "source_url": "https://www.welab.bank/fx.json",
+          "rate_type": "HKD per 1 foreign currency / source champion row",
+          "updated_at": "數據截至2026年5月15日"
+        },
+        {
+          "bank": "招商永隆銀行",
+          "rate": 6.145,
+          "source": "招商永隆銀行官方 T/T Exchange Rates",
+          "source_url": "https://www.cmbwinglungbank.com/wlb_corporate/en/personal/investments/financial-information/exchange-rates/tt-exchange-rates.html",
+          "rate_type": "Customer Buy / T/T exchange rate",
+          "updated_at": "2026/05/15 15:20:50"
+        },
+        {
+          "bank": "南洋商業銀行",
+          "rate": 6.1468,
+          "source": "南洋商業銀行官方外幣兌港元牌價 API",
+          "source_url": "https://www.ncb.com.hk/nanyang_bank/html/14ab.html",
+          "rate_type": "outNum / 賣出；按官網單位換算為 HKD per 1",
+          "updated_at": "2026/05/15 15:19:55"
+        },
+        {
+          "bank": "Hang Seng Bank",
+          "rate": 6.148,
+          "source": "Hang Seng 官方 fxtt-exchange-rates API",
+          "source_url": "https://www.hangseng.com/en-hk/rates/foreign-currency-tt-exchange-rates/",
+          "rate_type": "ttSellRate / TT sell",
+          "updated_at": "2026-05-15T15:16:00+08:00"
+        },
+        {
+          "bank": "DBS Bank",
+          "rate": 6.162256,
+          "source": "DBS HK 官方 rates API",
+          "source_url": "https://www.dbs.com.hk/hk-rates-api/v1/api/hkrates/latestForexRates",
+          "rate_type": "hkdTTSell / TT sell",
+          "updated_at": "2026-05-15T15:20:45+08:00"
+        },
+        {
+          "bank": "HSBC",
+          "rate": 6.1691,
+          "source": "HSBC HK 官方 exchange-rate API",
+          "source_url": "https://www.hsbc.com.hk/investments/products/foreign-exchange/currency-rate/",
+          "rate_type": "ttSelRt / TT sell",
+          "updated_at": "2026-05-15 15:14:09 +0800"
+        },
+        {
+          "bank": "BOC(HK)",
+          "rate": 6.2,
+          "source": "BOCHK 官方外幣現鈔牌價",
+          "source_url": "https://www.bochk.com/whk/rates/exchangeRatesForCurrency/exchangeRatesForCurrency-input.action?lang=en",
+          "rate_type": "Customer Buy / foreign currency notes",
+          "updated_at": "2026/05/15 15:17:56"
+        }
+      ],
+      "max_saving_hkd_per_100k": 1122
+    }
+  ]
+}
