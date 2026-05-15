@@ -1,1 +1,44 @@
-<!DOCTYPE html><html lang="zh-HK"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>香港銀行比價總入口 | HK Bank Compare</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft JhengHei",sans-serif;background:#f3f5f8;color:#222}.hero{background:linear-gradient(135deg,#003D7F 0%,#C4161C 55%,#d4a017 100%);color:#fff;text-align:center;padding:48px 16px}.hero h1{font-size:2.2rem;margin:0 0 10px}.hero p{opacity:.92}.ct{max-width:1180px;margin:0 auto;padding:26px 14px 50px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:900px){.grid{grid-template-columns:1fr}}.card{background:#fff;border-radius:22px;box-shadow:0 8px 28px rgba(0,0,0,.1);padding:24px;border-top:6px solid #003D7F}.card.usd{border-top-color:#C4161C}.card.cny{border-top-color:#d4a017}.card h2{margin:0 0 10px;color:#003D7F}.card.usd h2{color:#C4161C}.card.cny h2{color:#9b6b00}.num{font-size:2.2rem;font-weight:900}.hkd .num{color:#003D7F}.usd .num{color:#C4161C}.cny .num{color:#9b6b00}.muted{color:#666;line-height:1.7}.btn{display:inline-block;margin-top:16px;border-radius:999px;padding:11px 18px;background:#003D7F;color:#fff;text-decoration:none;font-weight:800}.usd .btn{background:#C4161C}.cny .btn{background:#9b6b00}.foot{margin-top:22px;background:#fff;border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,.08);color:#555;line-height:1.7}</style></head><body><section class="hero"><h1>香港銀行比價總入口</h1><p>更新時間：2026-05-14 19:26:48</p></section><main class="ct"><div class="grid"><article class="card hkd"><h2>港元定期存款 HKD</h2><p class="muted">港元定存排行榜與完整清單。</p><div class="num">HKD</div><a class="btn" href="hkd.html">進入港元頁</a></article><article class="card usd"><h2>美元定期存款 USD</h2><p class="muted">美元定存排行榜與完整清單。</p><div class="num">USD</div><a class="btn" href="usd.html">進入美元頁</a></article><article class="card cny"><h2>人民幣定期存款 CNY</h2><p class="muted">人民幣定存排行榜與完整清單。</p><div class="num">CNY</div><a class="btn" href="cny.html">進入人民幣頁</a></article></div><div class="foot"><strong>說明：</strong><ul><li>三個幣種頁面共用同一套抽取、分類、排序與展示規則。</li><li>資料來源以 HKET 實時文章為主，南商 OP/IPEC 官方頁面為輔。</li><li>所有實際利率、起存額、推廣期及客戶身份條件，均以銀行官方公布為準。</li></ul></div></main></body></html>
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>香港銀行比價 | HK Bank Compare</title>
+  <meta name="description" content="香港銀行定期存款利率與外幣兌換匯率比較入口">
+  <style>
+    :root{--ink:#101828;--muted:#667085;--line:#E4E7EC;--bg:#F6F8FB;--panel:#fff;--hkd:#0B4AA2;--usd:#B4232A;--cny:#A76F00;--fx:#6D28D9;--green:#067647}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Microsoft JhengHei",Arial,sans-serif;background:radial-gradient(circle at 10% 0%,#EAF1FF 0,#F6F8FB 36%,#FFF 100%);color:var(--ink)} a{text-decoration:none;color:inherit}
+    .top{position:sticky;top:0;z-index:5;border-bottom:1px solid rgba(228,231,236,.9);background:rgba(255,255,255,.82);backdrop-filter:blur(14px)}.topin{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:1000;letter-spacing:-.04em}.brand span{color:var(--hkd)}.stamp{color:var(--muted);font-size:.88rem;font-weight:800}
+    .hero{max-width:1180px;margin:0 auto;padding:62px 20px 30px;display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:center}@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:40px}.board{order:-1}}
+    .kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid #D0D5DD;background:#fff;border-radius:999px;padding:8px 12px;font-weight:900;color:#344054;font-size:.88rem}.hero h1{margin:18px 0 14px;font-size:clamp(2.4rem,6vw,5.4rem);line-height:.95;letter-spacing:-.08em}.hero p{margin:0;color:#475467;font-size:1.08rem;line-height:1.75;max-width:720px}
+    .board{background:#101828;color:#fff;border-radius:32px;padding:22px;box-shadow:0 26px 80px rgba(16,24,40,.22);position:relative;overflow:hidden}.board:before{content:"";position:absolute;right:-80px;top:-80px;width:230px;height:230px;border-radius:50%;background:linear-gradient(135deg,rgba(11,74,162,.72),rgba(109,40,217,.45),rgba(180,35,42,.35))}.board h2{position:relative;margin:0 0 16px;color:#EAECF0}.group{position:relative;margin:15px 0 7px;display:flex;gap:10px;align-items:center;color:#98A2B3;font-size:.78rem;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.group:after{content:"";height:1px;flex:1;background:rgba(255,255,255,.15)}.row{position:relative;display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid rgba(255,255,255,.12)}.row:first-of-type{border-top:0}.ccy{font-size:1.08rem;font-weight:1000}.row small{display:block;margin-top:2px;color:#98A2B3}.open{background:#fff;color:#101828;border-radius:999px;padding:7px 10px;font-weight:1000}.bar{height:7px;background:rgba(255,255,255,.13);border-radius:99px;overflow:hidden;margin-top:7px}.bar i{display:block;height:100%;border-radius:99px}.b1{background:var(--hkd);width:88%}.b2{background:var(--usd);width:76%}.b3{background:var(--cny);width:58%}.b4{background:var(--fx);width:92%}
+    .wrap{max-width:1180px;margin:0 auto;padding:12px 20px 58px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:860px){.grid{grid-template-columns:1fr}}.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px}.card h3{margin:0 0 12px;font-size:1.25rem}.list{display:grid;gap:10px}.item{display:flex;gap:10px;line-height:1.58;color:#475467}.num{width:24px;height:24px;border-radius:8px;display:inline-grid;place-items:center;background:#EEF4FF;color:#0B4AA2;font-weight:1000;flex:0 0 24px}.meta{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;line-height:1.65}.ok{color:var(--green);font-weight:1000}
+  </style>
+</head>
+<body>
+  <div class="top"><div class="topin"><div class="brand"><span>HK</span> Bank Compare</div><div class="stamp">入口更新：2026-05-15 15:12</div></div></div>
+  <section class="hero">
+    <div>
+      <div class="kicker">🏦 香港銀行比價 · 利率 + 匯率</div>
+      <h1>香港銀行<br>比價總入口</h1>
+      <p>集中查看香港銀行定期存款利率與外幣兌換匯率：定存覆蓋港元、美元、人民幣；匯率頁按官方即時來源比較買外幣成本。</p>
+      
+    </div>
+    <aside class="board">
+      <h2>Comparison Boards</h2>
+      <div class="group">Time Deposit Rates</div>
+      <a class="row" href="https://TonyRomaRex.github.io/Workbuddy/hk-deposit-rates/hkd.html"><div class="ccy">HKD</div><div>港元定存<small>新資金 / 現有資金 / 新戶專享</small><div class="bar"><i class="b1"></i></div></div><span class="open">OPEN</span></a>
+      <a class="row" href="https://TonyRomaRex.github.io/Workbuddy/hk-deposit-rates/usd.html"><div class="ccy">USD</div><div>美元定存<small>外幣定存優惠與分類排行</small><div class="bar"><i class="b2"></i></div></div><span class="open">OPEN</span></a>
+      <a class="row" href="https://TonyRomaRex.github.io/Workbuddy/hk-deposit-rates/cny.html"><div class="ccy">CNY</div><div>人民幣定存<small>HKET OCR + 官方來源補數</small><div class="bar"><i class="b3"></i></div></div><span class="open">OPEN</span></a>
+      <div class="group">Foreign Exchange</div>
+      <a class="row" href="https://TonyRomaRex.github.io/Workbuddy/hk-fx-leaderboard/"><div class="ccy">FX</div><div>外幣匯率<small>HKD 買外幣 · 官方即時來源</small><div class="bar"><i class="b4"></i></div></div><span class="open">OPEN</span></a>
+    </aside>
+  </section>
+  <main class="wrap">
+    <div class="grid">
+      <section class="card"><h3>定期存款利率</h3><div class="list"><div class="item"><span class="num">1</span><div>三幣種：港元、美元、人民幣。</div></div><div class="item"><span class="num">2</span><div>五大分類：新資金、現有資金、新戶專享、兌換資金、其他特殊條件。</div></div><div class="item"><span class="num">3</span><div>Live-first 抓取 HKET、銀行官方頁與圖片 OCR；南商 OP/IPEC 官方來源優先。</div></div></div><div class="meta"><span class="ok">本地最新：</span>未偵測到本地最新輸出<br>正式頁有私人門禁；以銀行官方公布為準。</div></section>
+      <section class="card"><h3>外幣兌換匯率</h3><div class="list"><div class="item"><span class="num">1</span><div>比較香港銀行 HKD 買外幣成本，較低 HKD-per-foreign-unit 較好。</div></div><div class="item"><span class="num">2</span><div>優先使用各銀行官方即時網站 / API，不用第三方資料冒充官方即時價。</div></div><div class="item"><span class="num">3</span><div>頁面列出來源、rate type、更新時間與不可用銀行 blocker。</div></div></div><div class="meta"><span class="ok">本地最新：</span>未偵測到本地最新輸出<br>匯率會變動，交易前請以銀行實際報價為準。</div></section>
+    </div>
+  </main>
+</body>
+</html>
