@@ -1,1 +1,378 @@
-<!DOCTYPE html><html lang="zh-HK"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>香港銀行比價總入口 | HK Bank Compare</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft JhengHei",sans-serif;background:#f3f5f8;color:#222}.hero{background:linear-gradient(135deg,#003D7F 0%,#C4161C 55%,#d4a017 100%);color:#fff;text-align:center;padding:48px 16px}.hero h1{font-size:2.2rem;margin:0 0 10px}.hero p{opacity:.92}.ct{max-width:1180px;margin:0 auto;padding:26px 14px 50px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:900px){.grid{grid-template-columns:1fr}}.card{background:#fff;border-radius:22px;box-shadow:0 8px 28px rgba(0,0,0,.1);padding:24px;border-top:6px solid #003D7F}.card.usd{border-top-color:#C4161C}.card.cny{border-top-color:#d4a017}.card h2{margin:0 0 10px;color:#003D7F}.card.usd h2{color:#C4161C}.card.cny h2{color:#9b6b00}.num{font-size:2.2rem;font-weight:900}.hkd .num{color:#003D7F}.usd .num{color:#C4161C}.cny .num{color:#9b6b00}.muted{color:#666;line-height:1.7}.btn{display:inline-block;margin-top:16px;border-radius:999px;padding:11px 18px;background:#003D7F;color:#fff;text-decoration:none;font-weight:800}.usd .btn{background:#C4161C}.cny .btn{background:#9b6b00}.foot{margin-top:22px;background:#fff;border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,.08);color:#555;line-height:1.7}</style></head><body><section class="hero"><h1>香港銀行比價總入口</h1><p>更新時間：2026-05-14 19:26:48</p></section><main class="ct"><div class="grid"><article class="card hkd"><h2>港元定期存款 HKD</h2><p class="muted">港元定存排行榜與完整清單。</p><div class="num">HKD</div><a class="btn" href="hkd.html">進入港元頁</a></article><article class="card usd"><h2>美元定期存款 USD</h2><p class="muted">美元定存排行榜與完整清單。</p><div class="num">USD</div><a class="btn" href="usd.html">進入美元頁</a></article><article class="card cny"><h2>人民幣定期存款 CNY</h2><p class="muted">人民幣定存排行榜與完整清單。</p><div class="num">CNY</div><a class="btn" href="cny.html">進入人民幣頁</a></article></div><div class="foot"><strong>說明：</strong><ul><li>三個幣種頁面共用同一套抽取、分類、排序與展示規則。</li><li>資料來源以 HKET 實時文章為主，南商 OP/IPEC 官方頁面為輔。</li><li>所有實際利率、起存額、推廣期及客戶身份條件，均以銀行官方公布為準。</li></ul></div></main></body></html>
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>香港定期存款利率比較 | HK Bank Compare</title>
+  <meta name="description" content="香港港元、美元、人民幣定期存款利率比較，五大分類排行：新資金、現有資金、新戶專享、兌換資金、其他特殊條件">
+  <style>
+    :root{
+      --ink:#0D1B2E;--muted:#5D7290;--line:#E2EAF4;--bg:#F4F7FB;
+      --hkd:#0B4AA2;--usd:#C4161C;--cny:#9B6B00;--fx:#6D28D9;--green:#067647;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Microsoft JhengHei",Arial,sans-serif;
+      background:#F4F7FB;color:var(--ink);overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+
+    /* bg */
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+      background:
+        radial-gradient(circle at 5% 0%,rgba(11,74,162,.12) 0,transparent 30%),
+        radial-gradient(circle at 92% 8%,rgba(196,22,28,.08) 0,transparent 26%),
+        radial-gradient(circle at 55% 94%,rgba(109,40,217,.07) 0,transparent 32%);
+    }
+    body::after{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+      opacity:.3;
+      background-image:
+        linear-gradient(rgba(11,74,162,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(11,74,162,.07) 1px,transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(#000 0%,transparent 65%);
+    }
+
+    /* top bar */
+    .top{
+      position:sticky;top:0;z-index:50;
+      border-bottom:1px solid rgba(226,234,244,.9);
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(18px);
+    }
+    .topin{
+      max-width:1200px;margin:0 auto;padding:12px 24px;
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    }
+    .brand-link{
+      font-weight:1000;font-size:1rem;letter-spacing:-.04em;
+      margin-right:10px;
+    }
+    .brand-link .hk{color:var(--hkd)}
+    .topnav{display:flex;gap:5px;align-items:center;flex-wrap:wrap;flex:1}
+    .topnav a{
+      font-size:.8rem;font-weight:800;padding:6px 12px;border-radius:999px;
+      color:var(--muted);border:1px solid transparent;transition:all .18s;
+    }
+    .topnav a.active-hkd{background:#EEF4FF;color:var(--hkd);border-color:#C7D9F5}
+    .topnav a.active-usd{background:#FFF1F1;color:var(--usd);border-color:#F5C0C2}
+    .topnav a.active-cny{background:#FFFBEB;color:var(--cny);border-color:#F0D89A}
+    .topnav a:hover:not(.active-hkd):not(.active-usd):not(.active-cny){background:#EEF4FF;color:var(--hkd);border-color:#C7D9F5}
+    .stamp{margin-left:auto;color:var(--muted);font-size:.8rem;font-weight:700;white-space:nowrap}
+
+    /* hero banner */
+    .hero{
+      position:relative;z-index:1;
+      background:linear-gradient(135deg,#071630 0%,#0B4AA2 52%,#1e3a6e 100%);
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";position:absolute;right:-100px;top:-100px;
+      width:320px;height:320px;border-radius:50%;
+      background:radial-gradient(circle,rgba(196,22,28,.32),rgba(109,40,217,.28),transparent 65%);
+    }
+    .hero::after{
+      content:"DEPOSIT";position:absolute;
+      right:28px;bottom:-20px;
+      font-size:90px;font-weight:1000;line-height:1;
+      color:rgba(255,255,255,.05);letter-spacing:-4px;pointer-events:none;
+    }
+    .hero-in{
+      position:relative;z-index:1;
+      max-width:1200px;margin:0 auto;
+      padding:44px 24px 36px;
+      display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;
+    }
+    @media(max-width:700px){.hero-in{grid-template-columns:1fr}.hero-badges{display:none}}
+    .hero-kicker{
+      display:inline-flex;gap:6px;align-items:center;
+      background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;padding:6px 12px;
+      font-size:.78rem;font-weight:800;color:rgba(255,255,255,.88);margin-bottom:12px;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(1.8rem,4.5vw,3.2rem);
+      line-height:1.05;letter-spacing:-.06em;color:#fff;
+    }
+    .hero-sub{color:rgba(255,255,255,.72);font-size:.96rem;line-height:1.68;margin:0}
+
+    .hero-badges{display:flex;flex-direction:column;gap:10px}
+    .hbadge{
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+      border-radius:14px;padding:12px 16px;text-align:center;color:#fff;
+      min-width:90px;
+    }
+    .hbadge b{display:block;font-size:1.5rem;font-weight:1000;letter-spacing:-.04em}
+    .hbadge span{font-size:.7rem;opacity:.72;font-weight:700}
+
+    /* currency tabs */
+    .tab-bar{
+      position:relative;z-index:1;
+      max-width:1200px;margin:0 auto;
+      padding:22px 24px 0;
+      display:flex;gap:8px;
+    }
+    .tab{
+      padding:9px 20px;border-radius:999px 999px 0 0;
+      font-weight:800;font-size:.88rem;cursor:pointer;
+      border:1px solid var(--line);border-bottom:0;
+      background:#fff;color:var(--muted);
+      transition:all .18s;
+    }
+    .tab.t-hkd.active,.tab.t-hkd:hover{background:#EEF4FF;color:var(--hkd);border-color:#C7D9F5}
+    .tab.t-usd.active,.tab.t-usd:hover{background:#FFF1F1;color:var(--usd);border-color:#F5C0C2}
+    .tab.t-cny.active,.tab.t-cny:hover{background:#FFFBEB;color:var(--cny);border-color:#F0D89A}
+
+    /* cards section */
+    .cards-wrap{
+      position:relative;z-index:1;
+      max-width:1200px;margin:0 auto;
+      padding:0 24px 60px;
+    }
+    .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:18px}
+    @media(max-width:880px){.cards-grid{grid-template-columns:1fr}}
+
+    .dep-card{
+      background:#fff;border:1.5px solid var(--line);border-radius:22px;
+      overflow:hidden;cursor:pointer;
+      box-shadow:0 3px 14px rgba(11,74,162,.07);
+      transition:transform .18s,box-shadow .18s,border-color .18s;
+      display:flex;flex-direction:column;
+    }
+    .dep-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 48px rgba(11,74,162,.13);
+    }
+    .dep-card.hkd{border-top:4px solid var(--hkd)}
+    .dep-card.usd{border-top:4px solid var(--usd)}
+    .dep-card.cny{border-top:4px solid var(--cny)}
+    .dep-card.hkd:hover{border-color:var(--hkd)}
+    .dep-card.usd:hover{border-color:var(--usd)}
+    .dep-card.cny:hover{border-color:var(--cny)}
+
+    .dep-card-head{padding:20px 20px 14px;border-bottom:1px solid var(--line)}
+    .dep-ccy-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      border-radius:12px;padding:8px 12px;margin-bottom:12px;
+      font-weight:1000;font-size:1rem;letter-spacing:.03em;
+    }
+    .hkd .dep-ccy-badge{background:#EEF4FF;color:var(--hkd)}
+    .usd .dep-ccy-badge{background:#FFF1F1;color:var(--usd)}
+    .cny .dep-ccy-badge{background:#FFFBEB;color:var(--cny)}
+    .dep-card-head h2{margin:0 0 6px;font-size:1.1rem;font-weight:900}
+    .dep-card-head p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}
+
+    .dep-card-body{padding:16px 20px;flex:1}
+    .cat-list{display:grid;gap:6px;list-style:none;margin:0;padding:0}
+    .cat-list li{
+      display:flex;align-items:center;gap:8px;
+      font-size:.82rem;color:#475A70;
+    }
+    .cat-dot{
+      width:8px;height:8px;border-radius:50%;flex:0 0 8px;
+    }
+    .hkd .cat-dot{background:var(--hkd)}
+    .usd .cat-dot{background:var(--usd)}
+    .cny .cat-dot{background:var(--cny)}
+
+    .dep-card-foot{
+      padding:14px 20px;border-top:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .dep-btn{
+      display:inline-block;border-radius:999px;
+      padding:9px 18px;font-weight:900;font-size:.86rem;
+      color:#fff;transition:all .15s;
+    }
+    .hkd .dep-btn{background:var(--hkd)}
+    .usd .dep-btn{background:var(--usd)}
+    .cny .dep-btn{background:var(--cny)}
+    .hkd .dep-btn:hover{background:#0a3d8a}
+    .usd .dep-btn:hover{background:#a81319}
+    .cny .dep-btn:hover{background:#7a5500}
+    .dep-card-foot small{color:var(--muted);font-size:.75rem}
+
+    /* info section */
+    .info-wrap{
+      position:relative;z-index:1;
+      max-width:1200px;margin:0 auto;padding:0 24px 60px;
+    }
+    .section-label{
+      display:flex;align-items:center;gap:10px;
+      font-size:.76rem;font-weight:1000;text-transform:uppercase;
+      letter-spacing:.12em;color:var(--muted);margin:0 0 16px;
+    }
+    .section-label::after{content:"";flex:1;height:1px;background:var(--line)}
+    .rules-card{
+      background:#fff;border:1px solid var(--line);border-radius:22px;
+      padding:22px;box-shadow:0 2px 12px rgba(11,74,162,.05);
+    }
+    .rules-card h3{margin:0 0 14px;font-size:.96rem;font-weight:900;color:var(--ink)}
+    .rules-list{display:grid;gap:8px;list-style:none;margin:0;padding:0;columns:2;column-gap:20px}
+    @media(max-width:700px){.rules-list{columns:1}}
+    .rules-list li{
+      break-inside:avoid;
+      display:flex;gap:8px;align-items:flex-start;
+      font-size:.82rem;color:#475A70;line-height:1.58;padding-bottom:8px;
+    }
+    .rnum{
+      width:20px;height:20px;border-radius:6px;
+      background:#EEF4FF;color:var(--hkd);
+      display:inline-grid;place-items:center;
+      font-size:.7rem;font-weight:1000;flex:0 0 20px;
+    }
+    .rules-meta{
+      margin-top:14px;padding-top:14px;
+      border-top:1px solid var(--line);
+      font-size:.8rem;color:var(--muted);line-height:1.65;
+    }
+
+    /* footer */
+    .foot{
+      position:relative;z-index:1;
+      border-top:1px solid var(--line);
+      padding:20px 24px;text-align:center;
+      font-size:.79rem;color:var(--muted);
+      max-width:1200px;margin:0 auto;
+    }
+
+    /* animation */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .dep-card{animation:fadeUp .4s ease both}
+    .dep-card:nth-child(2){animation-delay:.06s}
+    .dep-card:nth-child(3){animation-delay:.12s}
+  </style>
+</head>
+<body>
+
+  <!-- top nav -->
+  <div class="top">
+    <div class="topin">
+      <a class="brand-link" href="https://TonyRomaRex.github.io/Workbuddy/hk-bank-compare/"><span class="hk">HK</span> Bank Compare</a>
+      <nav class="topnav">
+        <a href="https://TonyRomaRex.github.io/Workbuddy/hk-bank-compare/">🏠 總入口</a>
+        <a class="active-hkd" href="hkd.html">港元定存</a>
+        <a class="active-usd" href="usd.html">美元定存</a>
+        <a class="active-cny" href="cny.html">人民幣定存</a>
+        <a href="https://TonyRomaRex.github.io/Workbuddy/hk-fx-leaderboard/">外幣匯率</a>
+      </nav>
+      <div class="stamp">更新：2026-05-14 19:26</div>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="hero-in">
+      <div>
+        <div class="hero-kicker">📊 定期存款利率比較</div>
+        <h1>香港定期存款<br>利率比較</h1>
+        <p class="hero-sub">港元、美元、人民幣三幣種，五大分類排行。數據每日更新，南商 OP/IPEC 官方來源優先。</p>
+      </div>
+      <div class="hero-badges">
+        <div class="hbadge"><b>3</b><span>幣種</span></div>
+        <div class="hbadge"><b>5</b><span>分類</span></div>
+        <div class="hbadge"><b>10+</b><span>銀行</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- currency cards -->
+  <div class="cards-wrap">
+    <div class="cards-grid">
+
+      <a class="dep-card hkd" href="hkd.html">
+        <div class="dep-card-head">
+          <div class="dep-ccy-badge">🇭🇰 HKD</div>
+          <h2>港元定期存款</h2>
+          <p>港元定存排行榜與完整清單，覆蓋各主要銀行。</p>
+        </div>
+        <div class="dep-card-body">
+          <ul class="cat-list">
+            <li><span class="cat-dot"></span>🆕 新資金</li>
+            <li><span class="cat-dot"></span>💼 現有資金</li>
+            <li><span class="cat-dot"></span>👤 新戶專享</li>
+            <li><span class="cat-dot"></span>💱 兌換資金</li>
+            <li><span class="cat-dot"></span>🎁 其他特殊條件</li>
+          </ul>
+        </div>
+        <div class="dep-card-foot">
+          <span class="dep-btn">進入港元頁 →</span>
+          <small>Top 10 各期限</small>
+        </div>
+      </a>
+
+      <a class="dep-card usd" href="usd.html">
+        <div class="dep-card-head">
+          <div class="dep-ccy-badge">🇺🇸 USD</div>
+          <h2>美元定期存款</h2>
+          <p>美元定存排行榜與完整清單，涵蓋新資金與新戶優惠。</p>
+        </div>
+        <div class="dep-card-body">
+          <ul class="cat-list">
+            <li><span class="cat-dot"></span>🆕 新資金</li>
+            <li><span class="cat-dot"></span>💼 現有資金</li>
+            <li><span class="cat-dot"></span>👤 新戶專享</li>
+            <li><span class="cat-dot"></span>💱 兌換資金</li>
+            <li><span class="cat-dot"></span>🎁 其他特殊條件</li>
+          </ul>
+        </div>
+        <div class="dep-card-foot">
+          <span class="dep-btn">進入美元頁 →</span>
+          <small>Top 10 各期限</small>
+        </div>
+      </a>
+
+      <a class="dep-card cny" href="cny.html">
+        <div class="dep-card-head">
+          <div class="dep-ccy-badge">🇨🇳 CNY</div>
+          <h2>人民幣定期存款</h2>
+          <p>人民幣定存排行，HKET OCR 及南商 OP/IPEC 官方來源補數。</p>
+        </div>
+        <div class="dep-card-body">
+          <ul class="cat-list">
+            <li><span class="cat-dot"></span>🆕 新資金</li>
+            <li><span class="cat-dot"></span>💼 現有資金</li>
+            <li><span class="cat-dot"></span>👤 新戶專享</li>
+            <li><span class="cat-dot"></span>💱 兌換資金</li>
+            <li><span class="cat-dot"></span>🎁 其他特殊條件</li>
+          </ul>
+        </div>
+        <div class="dep-card-foot">
+          <span class="dep-btn">進入人民幣頁 →</span>
+          <small>Top 10 各期限</small>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- rules info -->
+  <div class="info-wrap">
+    <div class="section-label">本站使用規則</div>
+    <div class="rules-card">
+      <h3>數據抓取與展示規則</h3>
+      <ul class="rules-list">
+        <li><span class="rnum">1</span>幣種隔離：三幣種各自獨立頁面，共用同一套抽取、分類、排序與展示規則。</li>
+        <li><span class="rnum">2</span>五大分類優先級：新戶專享 → 兌換資金 → 其他特殊條件 → 新資金 → 現有資金。</li>
+        <li><span class="rnum">3</span>Live-first：優先抓取 HKET 即時文章，圖片 OCR 補數；南商 OP/IPEC 官方頁面優先覆蓋。</li>
+        <li><span class="rnum">4</span>南商置頂：各表格中南洋商業銀行固定顯示首行並高亮，排名按實際利率計算。</li>
+        <li><span class="rnum">5</span>Top 10：每個期限卡片最多顯示 10 條；完整清單可展開查看。</li>
+        <li><span class="rnum">6</span>適用金額：同時掃描條件欄、正文、小標題與上下文；支援「每人限搶N份」等表述。</li>
+      </ul>
+      <div class="rules-meta">正式頁有私人門禁；所有實際利率、起存額及條件，以各銀行官方公布為準。</div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <p>© 2026 HK Bank Compare · 數據僅供參考，以各銀行官方公布為準 ·
+      <a href="https://TonyRomaRex.github.io/Workbuddy/hk-bank-compare/" style="color:var(--hkd)">返回比價總入口</a>
+    </p>
+  </footer>
+
+</body>
+</html>
