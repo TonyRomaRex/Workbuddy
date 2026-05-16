@@ -181,7 +181,7 @@
     /* ── skyline SVG banner ── */
     .skyline{
       width:100%;overflow:hidden;margin-top:-2px;
-      position:relative;z-index:0;opacity:.55;
+      position:relative;z-index:0;opacity:1;
       pointer-events:none;
     }
 
@@ -357,18 +357,23 @@
 
   <!-- Hong Kong skyline SVG -->
   <div class="skyline" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;height:160px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;height:200px">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#EEF4FF" stop-opacity="0"/>
-          <stop offset="100%" stop-color="#EEF4FF" stop-opacity="1"/>
+          <stop offset="0%" stop-color="#EEF4FF" stop-opacity="0.6"/>
+          <stop offset="70%" stop-color="#D6E4F5" stop-opacity="0.2"/>
+          <stop offset="100%" stop-color="#C7D9F5" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="bldg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0B4AA2" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#0B4AA2" stop-opacity="0.10"/>
         </linearGradient>
       </defs>
       <!-- skyline buildings silhouette -->
       <path d="M0,160 L0,110 L30,110 L30,95 L50,95 L50,80 L55,80 L55,70 L60,70 L60,60 L65,60 L65,70 L70,70 L70,80 L75,80 L75,90 L90,90 L90,100 L110,100 L110,85 L120,85 L120,70 L125,70 L125,60 L130,60 L130,50 L135,50 L135,60 L140,60 L140,70 L145,70 L145,80 L155,80 L155,65 L165,65 L165,50 L170,50 L170,40 L175,40 L175,35 L180,35 L180,40 L185,40 L185,50 L190,50 L190,65 L200,65 L200,75 L215,75 L215,55 L220,55 L220,42 L225,42 L225,32 L230,32 L230,28 L235,28 L235,32 L240,32 L240,42 L245,42 L245,55 L255,55 L255,68 L268,68 L268,50 L275,50 L275,38 L280,38 L280,30 L285,30 L285,25 L290,25 L290,30 L295,30 L295,38 L300,38 L300,50 L310,50 L310,62 L325,62 L325,48 L335,48 L335,35 L340,35 L340,28 L345,28 L345,35 L350,35 L350,48 L360,48 L360,62 L375,62 L375,78 L390,78 L390,62 L400,62 L400,48 L405,48 L405,36 L410,36 L410,28 L415,28 L415,20 L420,20 L420,15 L425,15 L425,20 L430,20 L430,28 L435,28 L435,36 L440,36 L440,48 L448,48 L448,62 L460,62 L460,50 L470,50 L470,38 L475,38 L475,30 L480,30 L480,25 L485,25 L485,30 L490,30 L490,38 L495,38 L495,50 L505,50 L505,65 L520,65 L520,50 L530,50 L530,40 L535,40 L535,32 L540,32 L540,28 L545,28 L545,22 L550,22 L550,28 L555,28 L555,32 L560,32 L560,40 L565,40 L565,50 L575,50 L575,65 L590,65 L590,50 L600,50 L600,36 L605,36 L605,26 L610,26 L610,18 L615,18 L615,12 L620,12 L620,18 L625,18 L625,26 L630,26 L630,36 L635,36 L635,50 L645,50 L645,65 L660,65 L660,52 L670,52 L670,40 L675,40 L675,32 L680,32 L680,40 L685,40 L685,52 L695,52 L695,65 L710,65 L710,50 L720,50 L720,38 L725,38 L725,30 L730,30 L730,24 L735,24 L735,30 L740,30 L740,38 L745,38 L745,50 L755,50 L755,65 L770,65 L770,48 L782,48 L782,36 L788,36 L788,28 L793,28 L793,22 L798,22 L798,28 L803,28 L803,36 L808,36 L808,48 L820,48 L820,60 L835,60 L835,45 L845,45 L845,35 L850,35 L850,28 L855,28 L855,22 L860,22 L860,28 L865,28 L865,35 L870,35 L870,45 L880,45 L880,58 L895,58 L895,70 L910,70 L910,55 L920,55 L920,42 L925,42 L925,35 L930,35 L930,42 L935,42 L935,55 L945,55 L945,70 L960,70 L960,55 L972,55 L972,42 L978,42 L978,35 L984,35 L984,42 L990,42 L990,55 L1000,55 L1000,70 L1015,70 L1015,80 L1030,80 L1030,65 L1040,65 L1040,52 L1045,52 L1045,44 L1050,44 L1050,52 L1055,52 L1055,65 L1065,65 L1065,80 L1080,80 L1080,92 L1095,92 L1095,105 L1110,105 L1110,92 L1120,92 L1120,80 L1135,80 L1135,92 L1150,92 L1150,105 L1165,105 L1165,115 L1180,115 L1180,125 L1200,125 L1200,160 Z"
-            fill="rgba(11,74,162,0.06)"/>
+            fill="url(#bldg)"/>
       <!-- windows pattern -->
-      <g fill="rgba(11,74,162,0.12)">
+      <g fill="rgba(11,74,162,0.30)">
         <rect x="423" y="22" width="3" height="4" rx="1"/>
         <rect x="430" y="22" width="3" height="4" rx="1"/>
         <rect x="423" y="30" width="3" height="4" rx="1"/>
